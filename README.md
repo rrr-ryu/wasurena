@@ -1,24 +1,57 @@
-# README
+# アプリケーション名
+Wasurena (勿忘）
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# アプリケーション概要
+幼稚園や保育園バスの送迎時に乗車と降車、出席、欠席の管理ができる。
 
-Things you may want to cover:
+# URL
+- https://wasurena.onrender.com
 
-* Ruby version
+# テスト用アカウント
+- Basic認証ID: 
 
-* System dependencies
+- Basic認証PASS:
 
-* Configuration
+- テスト用アカウントメールアドレス:
 
-* Database creation
+- テスト用アカウントPASS:
 
-* Database initialization
+# 利用方法
 
-* How to run the test suite
+## 児童の登録
+## クラスの作成
+## 送迎の作成
+## 児童の編集
+## 一覧ページでの動作
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+# アプリケーションを作成した背景
+保育園の送迎バスで子供を降ろし忘れ、亡くなってしまうニュースをを見ました。自分も幼稚園にバスで通う子供を持っています。そこで、ニュースのような子供を降ろし忘れるような事故が起きないようなアプリを作れないかと考え、作成を致しました。
+
+# 洗い出した要件
+
+
+
+# 実装した機能についての画像、Gifおよびその説明
+
+# 実装予定の機能
+
+# データベース設計
+<img src="table_design.png">
+
+# 画面遷移図
+<img src="flow_chart.png">
+
+# 開発環境
+- フロントエンド
+- バックエンド
+- インフラ
+- テスト
+- テキストエディタ
+- タスク管理
+  
+# ローカルでの動作方法
+
+# 工夫したポイント
+
