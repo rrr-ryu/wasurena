@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
     <title>Wasurena</title>
+    <meta name="勿忘" content="保育園、幼稚園送迎バス管理Webアプリケーション">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +13,7 @@
   </head>
 
   <body>
+    <%= render partial:'shared/header' %>
     <%= yield %>
   </body>
 </html>
