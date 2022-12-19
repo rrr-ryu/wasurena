@@ -15,11 +15,11 @@ header {
   display: flex;
   align-items: center;
 }
-#logo h2 {
+.logo-main {
   font-size: 32px;
 }
 
-#logo p {
+.logo-sub {
   font-size: 16px;
   margin-left: 20px;
 }
@@ -31,6 +31,7 @@ header {
 #header-lists {
   display: flex;
   align-items: center;
+  margin-right: 150px;
 }
 
 .header-list {
@@ -38,7 +39,10 @@ header {
   height: 40px;
   text-align: center;
   line-height: 40px;
-  border-right: 1px solid gray
+  border-right: 1px solid gray;
+  font-size: 20px;
+  font-weight: 500;
+  color: black;
 }
 
 .header-list-item {
@@ -52,4 +56,11 @@ header {
   font-size: 20px;
   text-align: center;
   line-height: 50px;
+  position: absolute;
+  top: 5px;
+  right: 50px;
+}
+
+#heder-user li{
+  position: relative;
 }
