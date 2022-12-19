@@ -16,7 +16,8 @@
     </div>
     <div class="field">
       <div class="form-label">
-      <%= f.label :uid, "ユーザーID" %>
+      <%= f.label :uid, "ユーザーID" %><br>
+       (半角英数字8文字以上）
       </div>
       <div class="form-field">
       <%= f.text_field :uid, autocomplete: "ID" %>
@@ -25,7 +26,8 @@
 
     <div class="field">
       <div class="form-label">
-      <%= f.label :password, "パスワード(半角英数字含む6文字以上）"%>
+      <%= f.label :password, "パスワード"%><br>
+      (半角英数字6文字以上）
       </div>
       <div class="form-field">
       <%= f.password_field :password, autocomplete: "new-password" %>
