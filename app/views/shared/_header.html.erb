@@ -1,19 +1,34 @@
 <header>
   <div id="header-container">
     <div id="logo">
-      <h2>勿 忘</h2>
-      <p>Wasurena</p>
+      <%= link_to "勿 忘", root_path, class:"logo-main"%>
+      <%= link_to "Wasurena", root_path, class:"logo-sub"%>
     </div>
     <div id="header-right">
       <ul id="header-lists">
+      <% if user_signed_in?%>
         <li class="header-list"><a class="header-list-item" href="#"></a></li>
         <li class="header-list"><a class="header-list-item" href="#">グループ作成</a></li>
-        <li class="header-list"><a class="header-list-item" href="#">新規登録</a></li>
-        <li class="header-list"><a class="header-list-item" href="#">ログイン</a></li>
+      <% else%>
+        <li class="header-list">
+        <%= link_to "新規登録", new_user_registration_path, class:"header-list-item"%>
+        </li>
+        <li class="header-list">
+        <%= link_to "ログイン", new_user_session_path, class:"header-list-item"%>
+        </li>
+      <% end %>
       </ul>
       <div id="header-user">
-        <p>ユーザー名</p>
+        <% if user_signed_in?%>
+        <div id="header-user-name">
+        <p><%= current_user.name%><span>　▽</span></p>
+        </div>
+        <ul id="hidden">
+        <li><%=link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+        </ul>
+        <% end %>
       </div>
+
     </div>
   </div>
 </header>

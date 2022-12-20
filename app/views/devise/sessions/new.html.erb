@@ -1,0 +1,40 @@
+<div class="form">
+  <div class='login-flash-message'>
+    <%= flash[:notice] %>
+    <%= flash[:alert] %>
+  </div>
+  <div class="form-title">
+    <h2>ログイン</h2>
+  </div>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+   <div class="field">
+      <div class="form-label">
+      <%= f.label :uid, "ユーザーID" %>
+      </div>
+      <div class="form-field">
+      <%= f.text_field :uid, autocomplete: "ID" %>
+      </div>
+    </div>
+    <div class="field">
+      <div class="form-label">
+      <%= f.label :password, "パスワード"%>
+      </div>
+      <div class="form-field">
+      <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+    </div>
+  <% if devise_mapping.rememberable? %>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me,"ログイン状態を保存する" %>
+    </div>
+  <% end %>
+
+    <div class="actions">
+      <span>
+      <%= f.submit "ログインする" %>
+      </span>
+    </div>
+<% end %>
+</div>

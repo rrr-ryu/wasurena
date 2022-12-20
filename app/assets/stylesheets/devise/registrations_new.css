@@ -1,0 +1,44 @@
+.form { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-title {
+  margin: 20px 0;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.field {
+  display: flex;
+  padding: 10px;
+  border-bottom: 1px solid gray;
+  align-items: center;
+}
+
+.form-label {
+  width: 200px;
+}
+
+
+.form-field input{
+  width: 400px;
+  height: 40px;
+  font-size: 16px;
+  border: 1px solid black;
+  padding: 0 10px;
+}
+
+.actions {
+  margin: 20px;
+  text-align: center;
+}
+
+.actions span {
+  width: 200px;
+  height: 50px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
