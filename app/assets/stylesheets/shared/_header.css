@@ -61,6 +61,11 @@ header {
   right: 50px;
 }
 
-#heder-user li{
+#header-user-name span{
+  font-size: 12px;
+}
+
+#hidden{
   position: relative;
+  display: none;
 }

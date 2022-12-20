@@ -20,8 +20,10 @@
       </ul>
       <div id="header-user">
         <% if user_signed_in?%>
-        <%= link_to current_user.name%>
-        <ul>
+        <div id="header-user-name">
+        <p><%= current_user.name%><span>　▽</span></p>
+        </div>
+        <ul id="hidden">
         <li><%=link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
         </ul>
         <% end %>
