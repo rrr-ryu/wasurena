@@ -11,6 +11,9 @@ class User < ApplicationRecord
                   uniqueness: { case_sensitive: true },
                   length: {minimum:8, maximum:16}, 
                   format: { with: PASSWORD_REGEX, message: 'is invalid. Include both letters and numbers'}
+                  
+  has_many :group_users
+  has_many :groups, trough: :group_users
 
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
