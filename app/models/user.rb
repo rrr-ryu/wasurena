@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates_format_of :password, with: PASSWORD_REGEX, message: 'is invalid. Include both letters and numbers'
   validates :name, presence: true
   validates :uid, presence: true, 
-                  uniqueness: true, 
+                  uniqueness: { case_sensitive: true },
                   length: {minimum:8, maximum:16}, 
                   format: { with: PASSWORD_REGEX, message: 'is invalid. Include both letters and numbers'}
 
