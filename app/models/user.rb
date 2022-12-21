@@ -11,7 +11,9 @@ class User < ApplicationRecord
                   uniqueness: { case_sensitive: true },
                   length: {minimum:8, maximum:16}, 
                   format: { with: PASSWORD_REGEX, message: 'is invalid. Include both letters and numbers'}
-
+                  
+  has_many :user_rooms
+  has_many :rooms, through: :user_rooms
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if login = conditions.delete(:login)
@@ -32,4 +34,5 @@ class User < ApplicationRecord
   def will_save_change_to_email?
     false
   end
+
 end

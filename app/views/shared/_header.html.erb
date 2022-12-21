@@ -7,8 +7,12 @@
     <div id="header-right">
       <ul id="header-lists">
       <% if user_signed_in?%>
-        <li class="header-list"><a class="header-list-item" href="#"></a></li>
-        <li class="header-list"><a class="header-list-item" href="#">グループ作成</a></li>
+        <li class="header-list">
+        <%= link_to "グループ一覧", rooms_path %>
+        </li>
+        <li class="header-list">
+        <%= link_to "グループ作成", new_room_path %>
+        </li>
       <% else%>
         <li class="header-list">
         <%= link_to "新規登録", new_user_registration_path, class:"header-list-item"%>
