@@ -14,9 +14,20 @@
   width: 100%;
   height: 50px;
   border-bottom: 1px solid black;
-  font-size: 22px;
+  font-size: 18px;
   padding: 0 10px;
   line-height: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#sidebar-top p{
+  width: 80%;
+  font-weight: 600;
+}
+
+.edit {
+  font-size: 12px;
 }
 
 .sidebar-index {
@@ -107,3 +118,6 @@
   border-radius: 20px;
   background-color: lightgray;
 }
+
+/* レスポンシブデザイン */
+/* サイドバーの文字を小さくするトップに10文字で収まるように */
