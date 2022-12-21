@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   root to: 'home#index'
   get 'home/index'
 
-  resources :groups
+  resources :rooms
 end
