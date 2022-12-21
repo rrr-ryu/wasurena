@@ -1,20 +1,27 @@
-<div class="group-index">
-  <div class="sidebar">
-    <div id="sidebar-top">
-      <p>グループ一覧</p>
+<%= render partial:'shared/header' %>
+<div class="main-page">
+  <div class="group-index">
+    <div class="sidebar">
+      <div id="sidebar-top">
+        <p>グループ一覧</p>
+      </div>
+      <div class="sidebar-index">
+        <ul id="sidebar-lists">
+
+        <%# パラメーターのルーム内で作成したクラスと送迎種類を表示させる 
+        リンク先はteamとpickupのshow%>
+        <% @user_rooms.each do |r| %>
+          <li class="sidebar-list">
+          <%= link_to r.room.name, room_path(id:r.room.id), class:"room-link" %>
+          </li>
+        <% end %>
+        
+        </ul>
+      </div>
     </div>
-    <div class="sidebar-index">
-      <ul id="sidebar-lists">
-      <% @user_rooms.each do |r| %>
-        <li class="sidebar-list">
-        <%= link_to r.room.name, rooms_path, class:"room-link" %>
-        </li>
-      <% end %>
-      </ul>
-    </div>
-  </div>
-  <div class="main">
-    <div id="main-top">
+    <div class="main">
+      <div id="main-top">
+      </div>
     </div>
   </div>
 </div>

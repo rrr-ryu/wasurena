@@ -6,21 +6,18 @@
     </div>
     <div id="header-right">
       <ul id="header-lists">
-      <% if user_signed_in? %>
         <li class="header-list">
         <%= link_to "グループ一覧", rooms_path %>
         </li>
         <li class="header-list">
-        <%= link_to "グループ作成", new_room_path %>
-        </li>
-      <% else%>
-        <li class="header-list">
-        <%= link_to "新規登録", new_user_registration_path, class:"header-list-item"%>
+        <%= link_to "児童登録", new_room_path %>
         </li>
         <li class="header-list">
-        <%= link_to "ログイン", new_user_session_path, class:"header-list-item"%>
+        <%= link_to "クラス作成", new_room_path %>
         </li>
-      <% end %>
+        <li class="header-list">
+        <%= link_to "送迎作成", new_room_path %>
+        </li>
       </ul>
       <div id="header-user">
         <% if user_signed_in?%>
