@@ -19,90 +19,24 @@
     <div class="main">
       <div id="main-top">
       <%# 選択されたクラス、送迎名を表示する %>
-        <p>クラス登録なし</p>
+        <p>各種機能</p>
       <%# 選択されたクラス、送迎の編集ページへリンクする %>
         <%# <a href="#"></a> %>
       </div>
       <div id="main-index">
         <ul id="main-lists">
           <li class="main-list">
-
-          <%# Studentsから所属している児童がある場合表示する %>
-
-            <p class="student-last-name">おかだ</p>
-            <p class="student-first-name">りく</p>
-            <ul id="index-button-lists">
-
-            <%# Javascriptを使ってでクリックした時にボタンの色を変える %>
-
-              <li class="index-button-list">
-                <input type="submit" class="index-button"id="ride-on"value="乗車">
-              </li>
-              <li class="index-button-list">
-                <input type="submit" class="index-button"id="ride-off"value="降車">
-              </li>
-              <li class="index-button-list">
-                <input type="submit" class="index-button"id="attendance"value="出席">
-              </li>
-              <li class="index-button-list">
-                <input type="submit" class="index-button"id="absence"value="欠席">
-              </li>
-            </ul>
+            <%= link_to "・児童一覧へ", "#" %>
           </li>
           <li class="main-list">
-            <p class="student-last-name">いのうえ</p>
-            <p class="student-first-name">きくこ</p>
-            <ul id="index-button-lists">
-              <li class="index-button-list">
-                <input type="submit" class="index-button"id="ride-on"value="乗車">
-              </li>
-              <li class="index-button-list">
-                <input type="submit" class="index-button"id="ride-off"value="降車">
-              </li>
-              <li class="index-button-list">
-                <input type="submit" class="index-button"id="attendance"value="出席">
-              </li>
-              <li class="index-button-list">
-                <input type="submit" class="index-button"id="absence"value="欠席">
-              </li>
-            </ul>
-          </li>  
+            <%= link_to "・児童登録へ", "#" %>
+          </li>
           <li class="main-list">
-            <p class="student-last-name">はなざわ</p>
-            <p class="student-first-name">かな</p>
-            <ul id="index-button-lists">
-              <li class="index-button-list">
-                <input type="submit" class="index-button"id="ride-on"value="乗車">
-              </li>
-              <li class="index-button-list">
-                <input type="submit" class="index-button"id="ride-off"value="降車">
-              </li>
-              <li class="index-button-list">
-                <input type="submit" class="index-button"id="attendance"value="出席">
-              </li>
-              <li class="index-button-list">
-                <input type="submit" class="index-button"id="absence"value="欠席">
-              </li>
-            </ul>
-          </li>  
+            <%= link_to "・クラス作成へ", new_room_team_path(room_id: params[:id])%>
+          </li>
           <li class="main-list">
-            <p class="student-last-name">みなせ</p>
-            <p class="student-first-name">いのり</p>
-            <ul id="index-button-lists">
-              <li class="index-button-list">
-                <input type="submit" class="index-button"id="ride-on"value="乗車">
-              </li>
-              <li class="index-button-list">
-                <input type="submit" class="index-button"id="ride-off"value="降車">
-              </li>
-              <li class="index-button-list">
-                <input type="submit" class="index-button"id="attendance"value="出席">
-              </li>
-              <li class="index-button-list">
-                <input type="submit" class="index-button"id="absence"value="欠席">
-              </li>
-            </ul>
-          </li>        
+            <%= link_to "・送迎種類作成へ", "#" %>
+          </li>
         </ul>
       </div>
     </div>
