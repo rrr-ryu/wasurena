@@ -26,16 +26,16 @@
       <div id="main-index">
         <ul id="main-lists">
           <li class="main-list">
-            <%= link_to "・児童一覧へ", "#" %>
+            <%= link_to "・児童一覧へ", room_sutudents_path(room_id: params[:id]) %>
           </li>
           <li class="main-list">
-            <%= link_to "・児童登録へ", "#" %>
+            <%= link_to "・児童登録へ", new_room_sutudent_path(room_id: params[:id]) %>
           </li>
           <li class="main-list">
-            <%= link_to "・クラス作成へ", new_room_team_path(room_id: params[:id])%>
+            <%= link_to "・クラス作成へ", new_room_team_path(room_id: params[:id]) %>
           </li>
           <li class="main-list">
-            <%= link_to "・送迎種類作成へ", "#" %>
+            <%= link_to "・送迎種類作成へ",   new_room_pickup_path(room_id: params[:id]) %>
           </li>
         </ul>
       </div>
