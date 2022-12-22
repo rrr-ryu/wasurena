@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_22_080735) do
+ActiveRecord::Schema.define(version: 2022_12_22_133632) do
 
   create_table "pickups", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -24,6 +24,17 @@ ActiveRecord::Schema.define(version: 2022_12_22_080735) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "students", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "last_name", null: false
+    t.string "first_name", null: false
+    t.integer "team_id"
+    t.integer "pickup_id"
+    t.bigint "room_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_students_on_room_id"
   end
 
   create_table "teams", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -58,6 +69,7 @@ ActiveRecord::Schema.define(version: 2022_12_22_080735) do
   end
 
   add_foreign_key "pickups", "rooms"
+  add_foreign_key "students", "rooms"
   add_foreign_key "teams", "rooms"
   add_foreign_key "user_rooms", "rooms"
   add_foreign_key "user_rooms", "users"

@@ -1,0 +1,51 @@
+<%= render partial:'shared/third_header' %>
+<div class="main-page">
+  <div class="form">
+    <div class="form-title">
+      <h2>児童登録</h2>
+    </div>
+    <%= form_with model: [@room,@student], local: true do |f| %>
+      <div class="form-errors">
+      <%= render 'shared/error_messages', model: f.object %>
+      </div>
+      <div class="field">
+        <div class="form-label">
+        <%= f.label :last_name,"苗字" %>
+        </div>
+        <div class="form-field">
+          <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+        </div>
+      </div>
+      <div class="field">
+        <div class="form-label">
+        <%= f.label :first_name,"名前" %>
+        </div>
+        <div class="form-field">
+          <%= f.text_field :first_name, autocomplete: "first_name" %>
+        </div>
+      </div>
+      <div class="field">
+        <div class="form-label">
+          <%= f.label :team_id,"クラス" %>
+        </div>
+        <div class="form-field">
+          <%= f.collection_select(:team_id, Team.where(room_id: @room.id), :id, :name, {include_blank: true}, {class:"select-box", id:"team-category"}) %>
+        </div>
+      </div>
+      <div class="field">
+        <div class="form-label">
+          <%= f.label :pickup_id,"送迎" %>
+          </div>
+          <div class="form-field">
+          <%= f.collection_select(:pickup_id, Pickup.where(room_id: @room.id), :id, :name, {include_blank: true}, {class:"select-box", id:"pickup-category"}) %>
+          </div>
+        </div>
+      </div>
+      <div class="actions">
+        <span>
+        <%= f.submit "登録する" %>
+        </span>
+      </div>
+    <% end %>
+  </div>
+</div>
