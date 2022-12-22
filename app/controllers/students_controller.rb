@@ -9,5 +9,6 @@ class StudentsController < ApplicationController
   private
   def set_room
     @room = Room.find(params[:room_id])
+  end
   
 end
