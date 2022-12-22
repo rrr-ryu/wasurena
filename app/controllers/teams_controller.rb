@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
-before_action :set_room
-before_action :authenticate_user!
+  before_action :set_room
+  before_action :authenticate_user!
 
   def new
     @team = Team.new
@@ -9,12 +9,11 @@ before_action :authenticate_user!
   def create
     @team = Team.new(params_team)
     if @team.save
-      redirect_to room_team_path(id: @team.id)
+      redirect_to room_students_path
     else
       render 'new'
     end
   end
-  
   
 
   def show
@@ -23,9 +22,9 @@ before_action :authenticate_user!
   end
   
   private
-def set_room
-  @room = Room.find(params[:room_id])
-end
+  def set_room
+    @room = Room.find(params[:room_id])
+  end
 
   def params_team
     params.require(:team).permit(:name).merge(room_id: params[:room_id])

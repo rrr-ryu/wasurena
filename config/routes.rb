@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   resources :rooms do
     resources :teams
     resources :pickups
-    resources :sutudents
+    resources :students
   end
 end
