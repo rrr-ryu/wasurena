@@ -7,16 +7,7 @@
     <div id="header-right">
       <ul id="header-lists">
         <li class="header-list">
-        <%= link_to "グループへ戻る", room_path %>
-        </li>
-        <li class="header-list">
-        <%= link_to "児童登録", new_room_path %>
-        </li>
-        <li class="header-list">
-        <%= link_to "クラス作成", new_room_team_path(room_id: params[:id]) %>
-        </li>
-        <li class="header-list">
-        <%= link_to "送迎作成", new_room_path %>
+        <%= link_to "戻る", room_path(id: params[:room_id]) %>
         </li>
       </ul>
       <div id="header-user">

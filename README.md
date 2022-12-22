@@ -37,6 +37,7 @@ https://docs.google.com/spreadsheets/d/1FX-DNpxTTG3r5xCpaIUpdusAWN-7D5571AEyMTwJ
 - 児童詳細で、連絡事項などを忘れないようにメモできる機能
 - 送迎の種類毎に時間を入れられるようにして児童をその順番に並べる機能
 - 児童毎に設定するクラス、送迎種類をチェックボックスを使ってまとめて設定できるようにする
+- ユーザーを複数グループに所属できるようにする
 - 管理者と編集者や一般として使用できることを権限毎に与える
 
 # データベース設計
@@ -56,10 +57,15 @@ https://docs.google.com/spreadsheets/d/1FX-DNpxTTG3r5xCpaIUpdusAWN-7D5571AEyMTwJ
   
 # ローカルでの動作方法
 以下コマンド実行
+
 % git clone https://github.com/rrr-ryu/wasurena.git
+
 % cd wasureana
+
 % bundle install
+
 % yarn install
+
 % rails db:seed
 
 # 工夫したポイント
