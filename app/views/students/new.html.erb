@@ -10,6 +10,17 @@
       </div>
       <div class="field">
         <div class="form-label">
+        <%= f.label :image,"画像" %>
+        </div>
+        <div class="click-upload">
+          <p>
+            クリックしてファイルをアップロード
+          </p>
+          <%= f.file_field :image, id:"item-image" %>
+        </div>
+      </div>
+      <div class="field">
+        <div class="form-label">
         <%= f.label :last_name,"苗字" %>
         </div>
         <div class="form-field">

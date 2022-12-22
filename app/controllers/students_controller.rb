@@ -26,7 +26,9 @@ class StudentsController < ApplicationController
   end
 
   def params_student
-    params.require(:student).permit(:last_name, :first_name, :team_id, :pickup_id).merge(room_id: params[:room_id])
+    params.require(:student)
+          .permit(:last_name, :first_name, :team_id, :pickup_id, :image)
+          .merge(room_id: params[:room_id])
   end
   
 end
