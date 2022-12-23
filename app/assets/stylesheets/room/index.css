@@ -1,7 +1,7 @@
 .group-index {
   display: flex;
 }
-
+/* サイドバー */
 .sidebar {
   width: 25vw;
   height: calc(100vh - 80px);
@@ -26,23 +26,29 @@
   font-weight: 600;
 }
 
-.edit {
-  font-size: 12px;
-}
-
 .sidebar-index {
+  overflow: hidden;
   height: calc(100% - 50px);
   padding: 10px;
 }
 
+#sidebar-lists {
+  height: 100%;
+  overflow: auto;
+}
+
 .sidebar-list {
   width: 100%;
+  height: 40px;
   font-size: 18px;
   line-height: 40px;
   border-bottom: 1px solid black;
   text-align: end;
   padding: 0 20px;
+  margin-bottom: 10px;
 }
+
+/* メイン */
 
 .main {
   width: 75vw;
@@ -88,6 +94,7 @@
   width: 100%;
   border-bottom: 1px solid black;
 }
+/* 児童一覧 */
 
 .student-last-name {
   width: 120px;
@@ -99,6 +106,8 @@
   text-align: center;
   width: 120px;
 }
+
+/* 各種ボタン */
 
 #index-button-lists{
   width: calc(100% - 245px);
@@ -117,6 +126,12 @@
   border: 1px solid black;
   border-radius: 20px;
   background-color: lightgray;
+}
+
+/* 編集ボタン */
+
+.edit {
+  font-size: 12px;
 }
 
 /* レスポンシブデザイン */

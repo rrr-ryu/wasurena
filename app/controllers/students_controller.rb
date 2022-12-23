@@ -3,6 +3,9 @@ class StudentsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @students = Student.where(room_id:@room.id).where(team_id: nil)
+    @pickups = Pickup.where(room_id:@room.id)
+    @teams = Team.where(room_id:@room.id)
   end
   
   def new
