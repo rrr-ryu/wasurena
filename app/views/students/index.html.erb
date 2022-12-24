@@ -37,8 +37,12 @@
         <ul id="main-lists">
           <% @students.each do |s| %>
             <li class="main-list">
-              <p class="student-last-name"><%= s.last_name %></p>
-              <p class="student-first-name"><%= s.first_name %></p>
+            <%= link_to (room_student_path(id: s.id)) do %>
+              <div id="student-name">
+                <p class="student-last-name"><%= s.last_name %></p>
+                <p class="student-first-name"><%= s.first_name %></p>
+              </div>
+            <% end %>
               <ul id="index-button-lists">
                 <li class="index-button-list">
                   <input type="submit" class="index-button"id="ride-on"value="乗車">

@@ -17,8 +17,11 @@ class TeamsController < ApplicationController
   
 
   def show
-    @teams = Team.where(room_id: @room.id)
     @team = Team.find(params[:id])
+    @students = Student.where(room_id:@room.id).where(team_id: @team.id)
+    @pickups = Pickup.where(room_id:@room.id)
+    @teams = Team.where(room_id: @room.id)
+
   end
   
   private
