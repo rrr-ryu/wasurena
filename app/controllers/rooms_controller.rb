@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_room, only: [:edit, :update, :show, :destory]
   def index
     @user_rooms = UserRoom.where(user_id: current_user.id)
   end
@@ -20,15 +21,12 @@ class RoomsController < ApplicationController
 
   def show
     @user_rooms = UserRoom.where(user_id: current_user.id)
-    @room = Room.find(params[:id])
   end
 
   def edit
-    @room = Room.find(params[:id])
   end
   
   def update
-    @room = Room.find(params[:id])
       if @room.update_attributes(params_room)
         redirect_to room_path
       else
@@ -45,5 +43,9 @@ class RoomsController < ApplicationController
 
   def params_room
     params.require(:room).permit(:name)
+  end
+
+  def set_room
+    @room = Room.find(params[:id])
   end
 end
