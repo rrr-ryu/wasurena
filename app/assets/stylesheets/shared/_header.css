@@ -68,4 +68,6 @@ header {
 #hidden{
   position: relative;
   display: none;
+  background-color: #EEEEEE;
+  opacity: 0.7;
 }

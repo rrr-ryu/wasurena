@@ -95,16 +95,19 @@
   border-bottom: 1px solid black;
 }
 /* 児童一覧 */
+#student-name {
+  display: flex;
+}
 
 .student-last-name {
   width: 120px;
-  text-align: center;
-  margin-right: 5px;
+  text-align: end;
+  padding-right: 10px;
 }
 
 .student-first-name {
-  text-align: center;
   width: 120px;
+  text-align: start;
 }
 
 /* 各種ボタン */
@@ -125,7 +128,11 @@
   margin: 0 10px;
   border: 1px solid black;
   border-radius: 20px;
-  background-color: lightgray;
+  background-color: whitesmoke;
+}
+
+.none {
+  display: none;
 }
 
 /* 編集ボタン */

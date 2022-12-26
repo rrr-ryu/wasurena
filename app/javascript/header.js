@@ -3,11 +3,13 @@ function headerList (){
   const pullDownList = document.getElementById('hidden')
 
   pullDownButton.addEventListener('mouseover', () => {
-    pullDownButton.setAttribute("style", "background-color: #EEEEEE");
+    pullDownButton.setAttribute("style", "background-color: #EEEEEE;");
   });
+  
   pullDownButton.addEventListener('mouseleave', () => {
     pullDownButton.removeAttribute("style");
   });
+
   pullDownButton.addEventListener('click', () => {
     if (pullDownList.getAttribute("style") == "display: block;"){
       pullDownList.removeAttribute("style")
