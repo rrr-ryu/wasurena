@@ -4,7 +4,7 @@
     <div class="sidebar">
       <div id="sidebar-top">
         <p><%= @room.name %></p>
-        <%= link_to "編集",  "#", class:"edit"%>
+        <%= link_to "編集",  edit_room_path, class:"edit"%>
       </div>
       <div class="sidebar-index">
       <%# クラス、送迎一覧表示 %>
@@ -30,7 +30,7 @@
       <%# クラス・送迎名 %>
         <p><%= @team.name %></p>
       <%# 編集ボタン %>
-        <%= link_to "編集",  "#", class:"edit"%>
+        <%= link_to "編集",  edit_room_team_path, class:"edit"%>
       </div>
       <%# 児童一覧表示 %>
       <div id="main-index">
