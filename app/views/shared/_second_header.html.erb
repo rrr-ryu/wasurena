@@ -7,26 +7,26 @@
     <div id="header-right">
       <ul id="header-lists">
         <li class="header-list">
-          <a href="" onclick="window.history.back(); return false;">戻る</a>
+          <%= link_to "児童一覧", room_students_path(room_id: params[:room_id]) %></li>
         </li>
         <li class="header-list">
-        <%= link_to "児童登録", new_room_student_path(room_id: params[:room_id]) %>
+          <%= link_to "児童登録", new_room_student_path(room_id: params[:room_id]) %>
         </li>
         <li class="header-list">
-        <%= link_to "クラス作成", new_room_team_path(room_id: params[:room_id]) %>
+          <%= link_to "クラス作成", new_room_team_path(room_id: params[:room_id]) %>
         </li>
         <li class="header-list">
-        <%= link_to "送迎作成", new_room_pickup_path(room_id: params[:room_id]) %>
+          <%= link_to "送迎作成", new_room_pickup_path(room_id: params[:room_id]) %>
         </li>
       </ul>
       <div id="header-user">
         <% if user_signed_in?%>
-        <div id="header-user-name">
-        <p><%= current_user.name%><span>　▽</span></p>
-        </div>
-        <ul id="hidden">
-        <li><%=link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-        </ul>
+          <div id="header-user-name">
+          <p><%= current_user.name%><span>　▽</span></p>
+          </div>
+          <ul id="hidden">
+          <li><%=link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+          </ul>
         <% end %>
       </div>
 

@@ -17,14 +17,13 @@ class PickupsController < ApplicationController
 
   def show
     @pickup = Pickup.find(params[:id])
-    @students = Student.where(room_id:@room.id).where(pickup_id: @pickup.id)
-    @pickups = Pickup.where(room_id:@room.id)
+    @students = Student.where(room_id: @room.id).where(pickup_id: @pickup.id)
+    @pickups = Pickup.where(room_id: @room.id)
     @teams = Team.where(room_id: @room.id)
   end
-  
-  
 
   private
+
   def set_room
     @room = Room.find(params[:room_id])
   end

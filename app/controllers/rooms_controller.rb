@@ -3,11 +3,11 @@ class RoomsController < ApplicationController
   def index
     @user_rooms = UserRoom.where(user_id: current_user.id)
   end
-  
+
   def new
     @room = Room.new
   end
-  
+
   def create
     @room = Room.new(params_room)
     if @room.save
@@ -17,13 +17,11 @@ class RoomsController < ApplicationController
       render 'new'
     end
   end
-  
+
   def show
-    @user_rooms = UserRoom.where(user_id:current_user.id)
+    @user_rooms = UserRoom.where(user_id: current_user.id)
     @room = Room.find(params[:id])
   end
-  
-
 
   private
 
@@ -34,5 +32,4 @@ class RoomsController < ApplicationController
   def params_room
     params.require(:room).permit(:name)
   end
-
 end
