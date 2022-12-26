@@ -3,7 +3,7 @@ class Room < ApplicationRecord
 
   has_many :user_rooms
   has_many :users, through: :user_rooms
-  has_one :team
-  has_one :pickup
-  has_one :student
+  has_one :team, dependent: :destroy
+  has_one :pickup, dependent: :destroy
+  has_one :student, dependent: :destroy
 end

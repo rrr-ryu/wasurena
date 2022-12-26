@@ -1,0 +1,27 @@
+<%= render partial:'shared/header' %>
+<div class="main-page">
+  <div class="form">
+    <div class="form-title">
+      <h2>グループ編集</h2>
+    </div>
+    <%= form_with model: @room, local: true do |f| %>
+      <div class="form-errors">
+      <%= render 'shared/error_messages', model: f.object %>
+      </div>
+      <div class="field">
+        <div class="form-label">
+        <%= f.label :name,"グループ名" %>
+        </div>
+        <div class="form-field">
+          <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+        </div>
+      </div>
+
+      <div class="actions">
+        <span>
+        <%= f.submit "編集する" %>
+        </span>
+      </div>
+    <% end %>
+  </div>
+</div>
