@@ -35,15 +35,28 @@
 
 .actions {
   margin: 20px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  line-height: 40px;
+  align-items: center;
 }
 
 .actions span {
-  width: 200px;
-  height: 50px;
-  padding: 10px;
+  width: 100px;
+  height: 40px;
   border: 1px solid black;
   border-radius: 10px;
+  text-align: center;
+}
+
+.destroy {
+  
+  margin-top: 100px;
+  background-color: red;
+}
+
+.destroy-button {
+  color: white;
 }
 
 .select-box {

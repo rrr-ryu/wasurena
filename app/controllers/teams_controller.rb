@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_room
-  before_action :set_team, only: [:edit, :update, :show, :destory]
+  before_action :set_team, only: [:edit, :update, :show, :destroy]
 
   def new
     @team = Team.new
@@ -31,6 +31,14 @@ class TeamsController < ApplicationController
       else
         render 'edit'
       end
+  end
+  
+  def destroy
+    if @team.destroy
+      redirect_to room_students_path(room_id: params[:room_id])
+    else
+      redirect_to 'edit'
+    end
   end
   
 

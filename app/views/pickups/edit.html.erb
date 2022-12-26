@@ -2,15 +2,15 @@
 <div class="main-page">
   <div class="form">
     <div class="form-title">
-      <h2>クラス編集</h2>
+      <h2>送迎編集</h2>
     </div>
-    <%= form_with model: [@room,@team], local: true do |f| %>
+    <%= form_with model: [@room,@pickup], local: true do |f| %>
       <div class="form-errors">
       <%= render 'shared/error_messages', model: f.object %>
       </div>
       <div class="field">
         <div class="form-label">
-        <%= f.label :name,"クラス名" %>
+        <%= f.label :name,"送迎名" %>
         </div>
         <div class="form-field">
           <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
@@ -22,9 +22,10 @@
         <%= f.submit "編集する" %>
         </span>
         <span class="destroy">
-        <%= link_to "削除する", room_team_path, method: :DELETE, class: "destroy-button"%>
+        <%= link_to "削除する", room_pickup_path, method: :DELETE, class: "destroy-button"%>
         </span>
       </div>
     <% end %>
+
   </div>
 </div>

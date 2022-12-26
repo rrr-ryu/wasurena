@@ -1,6 +1,7 @@
 class PickupsController < ApplicationController
-  before_action :set_room
   before_action :authenticate_user!
+  before_action :set_room
+  before_action :set_pickup, only: [:edit, :update, :show, :destroy]
 
   def new
     @pickup = Pickup.new
@@ -16,11 +17,32 @@ class PickupsController < ApplicationController
   end
 
   def show
-    @pickup = Pickup.find(params[:id])
     @students = Student.where(room_id: @room.id).where(pickup_id: @pickup.id)
     @pickups = Pickup.where(room_id: @room.id)
     @teams = Team.where(room_id: @room.id)
   end
+
+  def edit
+  end
+
+  def update
+      if @pickup.update_attributes(params_pickup)
+        redirect_to room_pickup_path
+      else
+        render 'edit'
+      end
+  end
+
+  def destroy
+    if @pickup.destroy
+      redirect_to room_students_path(id: params[:room_id])
+    else
+      redirect_to 'edit'
+    end
+  end
+  
+  
+  
 
   private
 
@@ -31,4 +53,8 @@ class PickupsController < ApplicationController
   def params_pickup
     params.require(:pickup).permit(:name).merge(room_id: params[:room_id])
   end
+
+  def set_pickup
+    @pickup = Pickup.find(params[:id])
+  end 
 end
