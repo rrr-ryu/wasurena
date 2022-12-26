@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
+  before_action :move_to_root, except:[:index]
   before_action :set_room, only: [:edit, :update, :show, :destory]
   def index
     @user_rooms = UserRoom.where(user_id: current_user.id)
@@ -38,7 +39,10 @@ class RoomsController < ApplicationController
   private
 
   def move_to_root
-    redirect_to root_path
+    @user_rooms = UserRoom.where(room_id: params[:id])
+    unless @user_rooms.exists?(user_id: current_user.id)
+      redirect_to root_path
+    end
   end
 
   def params_room

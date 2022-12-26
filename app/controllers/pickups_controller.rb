@@ -1,5 +1,6 @@
 class PickupsController < ApplicationController
   before_action :authenticate_user!
+  before_action :move_to_root
   before_action :set_room
   before_action :set_pickup, only: [:edit, :update, :show, :destroy]
 
@@ -45,6 +46,12 @@ class PickupsController < ApplicationController
   
 
   private
+  def move_to_root
+    @user_rooms = UserRoom.where(room_id: params[:room_id])
+    unless @user_rooms.exists?(user_id: current_user.id)
+      redirect_to root_path
+    end
+  end
 
   def set_room
     @room = Room.find(params[:room_id])

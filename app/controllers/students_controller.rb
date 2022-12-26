@@ -1,6 +1,7 @@
 class StudentsController < ApplicationController
-  before_action :set_room
   before_action :authenticate_user!
+  before_action :move_to_root
+  before_action :set_room
 
   def index
     @students = Student.where(room_id: @room.id).where(team_id: nil)
@@ -27,6 +28,12 @@ class StudentsController < ApplicationController
   end
 
   private
+  def move_to_root
+    @user_rooms = UserRoom.where(room_id: params[:room_id])
+    unless @user_rooms.exists?(user_id: current_user.id)
+      redirect_to root_path
+    end
+  end
 
   def set_room
     @room = Room.find(params[:room_id])
