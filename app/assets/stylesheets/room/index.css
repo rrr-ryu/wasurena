@@ -135,6 +135,11 @@
   display: none;
 }
 
+.pickup-name {
+  width: 200px;
+  text-align: end;
+}
+
 /* 編集ボタン */
 
 .edit {
