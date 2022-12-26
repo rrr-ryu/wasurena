@@ -15,7 +15,7 @@
               <%=  link_to t.name, room_team_path(id: t.id)%> 
             </li>
           <% end  %>
-          <li>送迎</li>
+          <li class="sidebar-list-name">送迎</li>
           <% @pickups.each do |i| %>
             <li class="sidebar-list">
               <%=  link_to i.name, room_pickup_path(id: i.id)%> 
@@ -34,48 +34,18 @@
       </div>
       <%# 児童一覧表示 %>
       <div id="main-index">
-        <ul id="main-lists">
+        <div id="main-lists">
           <% @students.each do |s| %>
-            <li class="main-list">
+            <div class="main-list">
             <%# 名前をクリックすると詳細画面に遷移する %>
-            <%= link_to (room_student_path(id: s.id)) do %>
-              <div id="student-name">
-                <p class="student-last-name"><%= s.last_name %></p>
-                <p class="student-first-name"><%= s.first_name %></p>
-              </div>
-            <% end %>
-            <%# ボタンクリックで色変更、Studentモデルのride_id,attend_id更新、jsによるAjax動作 %>
+              <%= link_to (room_student_path(id: s.id)) do %>
+                <div id="student-name">
+                  <p class="student-last-name"><%= s.last_name %></p>
+                  <p class="student-first-name"><%= s.first_name %></p>
+                </div>
+              <% end %>
+              <%# ボタンクリックで色変更、Studentモデルのride_id,attend_id更新、jsによるAjax動作 %>
               <ul id="index-button-lists">
-                <li class="index-button-list">
-                  <%= form_with model: [@room,s],method: :PUT, class: "form-ride-on", local: true do |f| %>
-                    <% if s.attend_id == 2 %>
-                      <%= f.collection_select(:ride_id, Ride.all, :id, :data, {selected: 1},{class: "ride-on-id none"}) %>
-                      <%= f.submit("乗車", class: "index-button ride-on", style:"background-color: #CCCCCC;",disabled: true)%>                    
-                    <% elsif s.ride_id == 1 %>
-                      <%= f.collection_select(:ride_id, Ride.all, :id, :data, {selected: 1},{class: "ride-on-id none"}) %>
-                      <%= f.submit("乗車", class: "index-button ride-on", style:"background-color: #FF3366;",disabled: true)%>
-                    <% else %>
-                      <%= f.collection_select(:ride_id, Ride.all, :id, :data, {selected: 1},{class: "ride-on-id none"}) %>
-                      <%= f.submit("乗車", class: "index-button ride-on")%>
-                    <% end %>
-                  <% end %>
-                  <%# <input type="submit" class="index-button ride-on" value="乗車"> %>
-                </li>
-                <li class="index-button-list">
-                  <%= form_with model: [@room,s],method: :PUT, class: "form-ride-off", local: true do |f| %>
-                    <% if s.attend_id == 2 %>
-                      <%= f.collection_select(:ride_id, Ride.all, :id, :data, {selected: 2},{class: "none"}) %>
-                      <%= f.submit("降車", class: "index-button ride-off", style:"background-color: #CCCCCC;",disabled: true)%>                    
-                    <% elsif s.ride_id == 2 %>
-                      <%= f.collection_select(:ride_id, Ride.all, :id, :data, {selected: 2},{class: "none"}) %>
-                      <%= f.submit("降車", class: "index-button ride-off", style:"background-color: #33CCFF;",disabled: true)%>
-                    <% else %>
-                      <%= f.collection_select(:ride_id, Ride.all, :id, :data, {selected: 2},{class: "none"}) %>
-                      <%= f.submit("降車", class: "index-button ride-off")%>
-                    <% end %>
-                  <% end %>
-                  <%# <input type="submit" class="index-button ride-off" value="降車"> %>
-                </li>
                 <li class="index-button-list">
                   <%= form_with model: [@room,s],method: :PUT, class: "form-attendance", local: true do |f| %>
                     <% if s.attend_id == 1 %>
@@ -97,15 +67,22 @@
                       <%= f.collection_select(:attend_id, Attend.all, :id, :data, {selected: 2},{class: "none"}) %>
                       <%= f.submit("欠席", class: "index-button absence")%>
                     <% end %>
-                  <% end %>                
+                  <% end %>
                   <%# <input type="submit" class="index-button absence" value="欠席"> %>
                 </li>
+                <li>
+                <% unless s.pickup_id == nil %>
+                <div class="pickup-name"><%= s.pickup.name %></div>
+                <% else %>
+                <div class="pickup-name"> </div>
+                <% end %>
+                </li>
               </ul>
-            </li>
+            </div>
           <% end %>
-        </ul>
-        <%# 児童一覧表示 %>
+        </div>
       </div>
+      <%# 児童一覧表示 %>
     </div>
   </div>
 </div>
