@@ -5,5 +5,7 @@ class Student < ApplicationRecord
   belongs_to :room, foreign_key: "room_id"
   belongs_to :team, optional: true
   belongs_to :pickup, optional: true
+  belongs_to :ride, optional: true
+  belongs_to :attend, optional: true
   has_one_attached :image
 end

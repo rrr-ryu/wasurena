@@ -1,4 +1,5 @@
 function button (){
+  const mainLists = document.getElementsByClassName("main-list");
   const rideOns = document.getElementsByClassName("ride-on");
   const rideOffs = document.getElementsByClassName("ride-off");
   const attendances = document.getElementsByClassName("attendance");
@@ -9,34 +10,68 @@ function button (){
   const absenceColor = "background-color: #CCCCCC;"
 
 
-  for(let i = 0; i < rideOns.length; i++) {
-    rideOns[i].addEventListener('click', () => {
-      if (rideOns[i].getAttribute("style") == rideOnColor) {
-        rideOns[i].removeAttribute("style")
-      }else if (rideOffs[i].getAttribute("style") == rideOffColor) {
-        rideOffs[i].removeAttribute("style");
-        rideOns[i].setAttribute("style", rideOnColor)
-      }else{
-        rideOns[i].setAttribute("style", rideOnColor)
-      };
-    });
+  for(let i = 0; i < mainLists.length; i++) {
+    rideOns[i].addEventListener('click', (e) => {
+      e.preventDefault();
+      const form = document.getElementsByClassName("form-ride-on");
+      const studentUrl = form[i].action
+      const putUrl = studentUrl
+      const formData = new FormData(form[i]);
+      const XHR = new XMLHttpRequest();
 
-    rideOffs[i].addEventListener('click', () => {
+      XHR.open("PUT", putUrl , true);
+      XHR.responseType = "json";
+      XHR.send(formData);
+
       if (rideOffs[i].getAttribute("style") == rideOffColor) {
         rideOffs[i].removeAttribute("style");
-      }else if (rideOns[i].getAttribute("style") == rideOnColor) {
+        rideOffs[i].removeAttribute("disabled");
+        rideOffs[i].removeAttribute("data-disable-with");
+        rideOns[i].setAttribute("style", rideOnColor);
+        rideOns[i].setAttribute("disabled", "true");
+      }else{
+        rideOns[i].setAttribute("style", rideOnColor)
+      };
+    });
+
+    rideOffs[i].addEventListener('click', (e) => {
+      e.preventDefault();
+      const form = document.getElementsByClassName("form-ride-off")
+      const studentUrl = form[i].action
+      const putUrl = studentUrl
+      const formData = new FormData(form[i]);
+      const XHR = new XMLHttpRequest();
+
+      XHR.open("PUT", putUrl , true);
+      XHR.responseType = "json";
+      XHR.send(formData);
+
+      if (rideOns[i].getAttribute("style") == rideOnColor) {
         rideOns[i].removeAttribute("style");
+        rideOns[i].removeAttribute("disabled");
+        rideOns[i].removeAttribute("data-disable-with");
         rideOffs[i].setAttribute("style", rideOffColor);
+        rideOffs[i].setAttribute("disabled", "true");
       }else{
         rideOffs[i].setAttribute("style", rideOffColor);
       };
     });
 
-    attendances[i].addEventListener('click', () => {
-      if (attendances[i].getAttribute("style") == attendanceColor) {
-        attendances[i].removeAttribute("style")
-      }else if (absences[i].getAttribute("style") == absenceColor) {
+    attendances[i].addEventListener('click', (e) => {
+      e.preventDefault();
+      const form = document.getElementsByClassName("form-attendance")
+      const studentUrl = form[i].action
+      const putUrl = studentUrl
+      const formData = new FormData(form[i]);
+      const XHR = new XMLHttpRequest();
+
+      XHR.open("PUT", putUrl , true);
+      XHR.responseType = "json";
+      XHR.send(formData);
+
+      if (absences[i].getAttribute("style") == absenceColor) {
         attendances[i].setAttribute("style", attendanceColor);
+        attendances[i].setAttribute("disabled", "true");
         absences[i].removeAttribute("style");
         absences[i].disabled = false;
         rideOns[i].removeAttribute("style");
@@ -48,15 +83,28 @@ function button (){
       };
     });
 
-    absences[i].addEventListener('click', () => {
-        attendances[i].removeAttribute("style")
-        absences[i].setAttribute("style", absenceColor);
-        absences[i].disabled = true;
-        rideOns[i].setAttribute("style", absenceColor);
-        rideOns[i].disabled = true;
-        rideOffs[i].setAttribute("style", absenceColor);
-        rideOffs[i].disabled = true;
-      });
+    absences[i].addEventListener('click', (e) => {
+      e.preventDefault();
+      const form = document.getElementsByClassName("form-absence")
+      const studentUrl = form[i].action
+      const putUrl = studentUrl
+      const formData = new FormData(form[i]);
+      formData.append("student[ride_id]", null)
+      const XHR = new XMLHttpRequest();
+
+      XHR.open("PUT", putUrl , true);
+      XHR.responseType = "json";
+      XHR.send(formData);
+
+      attendances[i].removeAttribute("style")
+      attendances[i].disabled = false;
+      absences[i].setAttribute("style", absenceColor);
+      absences[i].disabled = true;
+      rideOns[i].setAttribute("style", absenceColor);
+      rideOns[i].disabled = true;
+      rideOffs[i].setAttribute("style", absenceColor);
+      rideOffs[i].disabled = true;
+    });
   };
 };
 window.addEventListener('load',button);

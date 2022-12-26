@@ -20,9 +20,12 @@ class StudentsController < ApplicationController
       render 'new'
     end
   end
-  
-  
 
+  def update
+    @student = Student.find(params[:id])
+    @student.update_attributes(params_ride_attend)
+  end
+  
   private
   def set_room
     @room = Room.find(params[:room_id])
@@ -34,4 +37,8 @@ class StudentsController < ApplicationController
           .merge(room_id: params[:room_id])
   end
   
+  def params_ride_attend
+    params.require(:student)
+          .permit(:ride_id, :attend_id)
+  end
 end
