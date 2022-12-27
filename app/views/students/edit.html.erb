@@ -1,0 +1,73 @@
+<%= render partial:'shared/third_header' %>
+<div class="main-page">
+  <div class="form">
+    <div class="form-title">
+      <h2>児童編集</h2>
+    </div>
+    <%= form_with model:[@room,@student], url: "/rooms/#{params[:room_id]}/students/#{params[:id]}/update", method: :PUT, local: true do |f| %>
+      <div class="form-errors">
+        <% if @student.errors.any? %>
+        <div class="error-alert">
+          <ul>
+            <% @student.errors.full_messages.each do |message| %>
+            <li class='error-message'><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+        <% end %>  
+      </div>
+      <div class="field">
+        <div class="form-label">
+        <%= f.label :image,"画像" %>
+        </div>
+        <div class="click-upload">
+          <p>
+            クリックしてファイルをアップロード
+          </p>
+          <%= f.file_field :image, id:"item-image" %>
+        </div>
+      </div>
+      <div class="field">
+        <div class="form-label">
+        <%= f.label :last_name,"苗字" %>
+        </div>
+        <div class="form-field">
+          <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+        </div>
+      </div>
+      <div class="field">
+        <div class="form-label">
+        <%= f.label :first_name,"名前" %>
+        </div>
+        <div class="form-field">
+          <%= f.text_field :first_name, autocomplete: "first_name" %>
+        </div>
+      </div>
+      <div class="field">
+        <div class="form-label">
+          <%= f.label :team_id,"クラス" %>
+        </div>
+        <div class="form-field">
+          <%= f.collection_select(:team_id, Team.where(room_id: @room.id), :id, :name, {include_blank: true}, {class:"select-box", id:"team-category"}) %>
+        </div>
+      </div>
+      <div class="field">
+        <div class="form-label">
+          <%= f.label :pickup_id,"送迎" %>
+          </div>
+          <div class="form-field">
+          <%= f.collection_select(:pickup_id, Pickup.where(room_id: @room.id), :id, :name, {include_blank: true}, {class:"select-box", id:"pickup-category"}) %>
+          </div>
+        </div>
+      </div>
+      <div class="actions">
+        <span>
+          <%= f.submit "編集する" %>
+        </span>
+        <span class="destroy">
+          <%= link_to "削除する", room_student_path, method: :DELETE, class: "destroy-button"%>
+        </span>
+      </div>
+    <% end %>
+  </div>
+</div>

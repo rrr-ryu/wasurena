@@ -1,7 +1,7 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!
-  before_action :move_to_root, except:[:index]
-  before_action :set_room, only: [:edit, :update, :show, :destory]
+  before_action :move_to_root, except:[:index, :new, :create]
+  before_action :set_room, only: [:edit, :update, :show, :destroy]
   def index
     @user_rooms = UserRoom.where(user_id: current_user.id)
   end
@@ -33,6 +33,12 @@ class RoomsController < ApplicationController
       else
         render 'edit'
       end
+  end
+  
+  def destroy
+    if @room.destroy
+      redirect_to rooms_path
+    end
   end
   
 

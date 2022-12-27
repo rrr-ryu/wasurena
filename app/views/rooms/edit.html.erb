@@ -21,6 +21,9 @@
         <span>
         <%= f.submit "編集する" %>
         </span>
+        <span class="destroy">
+          <%= link_to "削除する", room_path, method: :DELETE, class: "destroy-button"%>
+        </span>
       </div>
     <% end %>
   </div>

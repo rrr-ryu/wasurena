@@ -2,6 +2,7 @@ class StudentsController < ApplicationController
   before_action :authenticate_user!
   before_action :move_to_root
   before_action :set_room
+  before_action :set_student,only: [:edit, :update, :show, :destroy, :update_edit]
 
   def index
     @students = Student.where(room_id: @room.id).where(team_id: nil)
@@ -23,15 +24,32 @@ class StudentsController < ApplicationController
   end
 
   def show
-    @student = Student.find(params[:id])
   end
-  
+
+  def edit
+  end
 
   def update
-    @student = Student.find(params[:id])
     @student.update_attributes(params_ride_attend)
   end
 
+  def update_edit
+      if @student.update_attributes(params_student)
+        redirect_to room_student_path
+      else
+        render 'edit'
+      end
+  end
+  
+  
+  def destroy
+    if @student.destroy
+      redirect_to room_students_path
+    else
+      render 'edit'
+    end
+  end
+  
   private
   def move_to_root
     @user_rooms = UserRoom.where(room_id: params[:room_id])
@@ -42,6 +60,10 @@ class StudentsController < ApplicationController
 
   def set_room
     @room = Room.find(params[:room_id])
+  end
+
+  def set_student
+    @student = Student.find(params[:id])
   end
 
   def params_student
