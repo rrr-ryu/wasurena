@@ -39,7 +39,7 @@
             <div class="main-list">
             <%# 名前をクリックすると詳細画面に遷移する %>
               <%= link_to (room_student_path(id: s.id)) do %>
-                <div id="student-name">
+                <div class="students-name">
                   <p class="student-last-name"><%= s.last_name %></p>
                   <p class="student-first-name"><%= s.first_name %></p>
                 </div>

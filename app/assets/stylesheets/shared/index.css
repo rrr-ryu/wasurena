@@ -95,7 +95,7 @@
   border-bottom: 1px solid black;
 }
 /* 児童一覧 */
-#student-name {
+.students-name {
   display: flex;
 }
 
