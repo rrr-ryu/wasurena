@@ -18,7 +18,7 @@ class TeamsController < ApplicationController
   end
 
   def show
-    @students = Student.where(room_id: @room.id).where(team_id: @team.id)
+    @students = Student.where(room_id: @room.id).where(team_id: @team.id).order(last_name: :asc).order(first_name: :asc)
     @pickups = Pickup.where(room_id: @room.id)
     @teams = Team.where(room_id: @room.id)
   end
