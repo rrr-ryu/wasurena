@@ -2,7 +2,7 @@
 <div class="main-page">
   <div class="form">
     <div class="form-title">
-      <h2>児童編集</h2>
+      <h2>児童内容編集</h2>
     </div>
     <%= form_with model:[@room,@student], url: "/rooms/#{params[:room_id]}/students/#{params[:id]}/update", method: :PUT, local: true do |f| %>
       <div class="form-errors">

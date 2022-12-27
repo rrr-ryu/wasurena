@@ -25,7 +25,9 @@
           <p><%= current_user.name%><span>　▽</span></p>
           </div>
           <ul id="hidden">
-          <li><%=link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+          <li class="hidden-list"><%= link_to "全出席リセット", room_students_attend_reset_path, method: :put%></li>
+          <li class="hidden-list"><%= link_to "全乗降車リセット", room_students_ride_reset_path, method: :put%></li>
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
           </ul>
         <% end %>
       </div>

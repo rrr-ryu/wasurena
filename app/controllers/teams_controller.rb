@@ -27,13 +27,13 @@ class TeamsController < ApplicationController
   end
 
   def update
-      if @team.update_attributes(params_team)
-        redirect_to room_students_path
-      else
-        render 'edit'
-      end
+    if @team.update_attributes(params_team)
+      redirect_to room_students_path
+    else
+      render 'edit'
+    end
   end
-  
+
   def destroy
     if @team.destroy
       redirect_to room_students_path(room_id: params[:room_id])
@@ -41,14 +41,14 @@ class TeamsController < ApplicationController
       redirect_to 'edit'
     end
   end
-  
 
   private
+
   def move_to_root
     @user_rooms = UserRoom.where(room_id: params[:room_id])
-    unless @user_rooms.exists?(user_id: current_user.id)
-      redirect_to root_path
-    end
+    return if @user_rooms.exists?(user_id: current_user.id)
+
+    redirect_to root_path
   end
 
   def set_room
@@ -62,5 +62,4 @@ class TeamsController < ApplicationController
   def set_team
     @team = Team.find(params[:id])
   end
-
 end

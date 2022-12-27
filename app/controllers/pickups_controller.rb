@@ -27,11 +27,11 @@ class PickupsController < ApplicationController
   end
 
   def update
-      if @pickup.update_attributes(params_pickup)
-        redirect_to room_pickup_path
-      else
-        render 'edit'
-      end
+    if @pickup.update_attributes(params_pickup)
+      redirect_to room_pickup_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
@@ -41,16 +41,14 @@ class PickupsController < ApplicationController
       redirect_to 'edit'
     end
   end
-  
-  
-  
 
   private
+
   def move_to_root
     @user_rooms = UserRoom.where(room_id: params[:room_id])
-    unless @user_rooms.exists?(user_id: current_user.id)
-      redirect_to root_path
-    end
+    return if @user_rooms.exists?(user_id: current_user.id)
+
+    redirect_to root_path
   end
 
   def set_room
@@ -63,5 +61,5 @@ class PickupsController < ApplicationController
 
   def set_pickup
     @pickup = Pickup.find(params[:id])
-  end 
+  end
 end
