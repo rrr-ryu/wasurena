@@ -1,0 +1,38 @@
+<%= render partial:'shared/third_header' %>
+<div class="main-page">
+  <div class="student-show">
+    <div class="student-name">
+      <%= @student.last_name %>
+      <%= @student.first_name %>
+    </div>
+    <div class="student">
+      <% if @student.image.attachment != nil %>
+        <%= image_tag @student.image, class: "image"%>
+      <% else %>
+        <%= image_tag "noimage.png" ,class: "image"%>
+      <% end %>
+    </div>
+    <ul class="student-items">クラス
+      <li class="student-item">
+      <% if @student.team != nil %>
+      <p><%= @student.team.name %></p>
+      <% else %>
+      <p>クラスに所属していません。</p>
+      <% end %>
+      </li>
+      送迎
+      <li class="student-item">
+      <% if @student.pickup != nil %>
+      <%= @student.pickup.name %>
+      <% else %>
+      送迎ではありません
+      <% end %>
+      </li>
+    </ul>
+  </div>
+        <div class="actions">
+        <span>
+        <%= link_to "編集へ", edit_room_student_path %>
+        </span>
+      </div>
+</div>

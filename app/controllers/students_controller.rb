@@ -22,6 +22,11 @@ class StudentsController < ApplicationController
     end
   end
 
+  def show
+    @student = Student.find(params[:id])
+  end
+  
+
   def update
     @student = Student.find(params[:id])
     @student.update_attributes(params_ride_attend)
