@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :teams
     resources :pickups
     resources :students
+    put 'students/:id/update', to: 'students#update_edit'
   end
 end
