@@ -19,15 +19,16 @@
           <%= link_to "送迎作成", new_room_pickup_path(room_id: params[:room_id]) %>
         </li>
       </ul>
+      
       <div id="header-user">
         <% if user_signed_in?%>
           <div id="header-user-name">
           <p><%= current_user.name%><span>　▽</span></p>
           </div>
           <ul id="hidden">
-          <li class="hidden-list"><%= link_to "全出席リセット", room_students_attend_reset_path, method: :put%></li>
-          <li class="hidden-list"><%= link_to "全乗降車リセット", room_students_ride_reset_path, method: :put%></li>
-          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+            <li class="hidden-list"><%= link_to "全出席リセット", room_students_attend_reset_path, method: :put%></li>
+            <li class="hidden-list"><%= link_to "全送迎リセット", room_students_ride_reset_path, method: :put%></li>
+            <li class="hidden-list"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
           </ul>
         <% end %>
       </div>

@@ -52,7 +52,6 @@ header {
 }
 
 #header-user {
-  width: 150px;
   font-size: 20px;
   text-align: center;
   line-height: 50px;
@@ -70,10 +69,53 @@ header {
   display: none;
   font-size: 14px;
   background-color: white;
-  opacity: 0.8;
+  opacity: 0.99;
   border: 1px solid black;
 }
 
 .hidden-list {
   border-bottom: 1px solid black;
+}
+/* レスポンシブデザイン タブレット表示*/
+@media (max-width: 1024px) {
+  #header-container {
+    padding: 0 20px;
+  }
+  .logo-main {
+    font-size: 26px;
+  }
+  
+  .logo-sub {
+    font-size: 12px;
+    margin-left: 10px;
+  }
+
+  #header-right {
+    justify-content: right;
+    width: 75%;
+  }
+  
+  #header-lists {
+    margin: 0;
+    padding-right: 100px;
+  }
+  
+  .header-list {
+    width: 100px;
+    font-size: 14px;
+  }
+  
+  #header-user {
+    width: 100px;
+    font-size: 12px;
+    right: 10px;
+  }
+  
+  #header-user-name span{
+    font-size: 8px;
+  }
+
+  #hidden {
+    font-size: 12px;
+  }
 }
