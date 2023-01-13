@@ -52,6 +52,7 @@ header {
 }
 
 #header-user {
+  width: 150px;
   font-size: 20px;
   text-align: center;
   line-height: 50px;

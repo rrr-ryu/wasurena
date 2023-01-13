@@ -25,6 +25,7 @@ class RoomsController < ApplicationController
   end
 
   def edit
+    @user_rooms = UserRoom.where(room_id: params[:id])
   end
 
   def update

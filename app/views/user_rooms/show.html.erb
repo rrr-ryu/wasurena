@@ -1,0 +1,48 @@
+<%= render partial:'shared/header' %>
+<div class="main-page">
+  <div class="form">
+    <div class="form-title">
+      グループ参加ユーザー編集
+    </div>
+    <div class="form-title">
+      グループ参加ユーザー名
+    </div>
+    <ul class="user-lists">
+      全てのユーザーを削除すると使用できなくなります。ご注意ください
+      <% @user_rooms.each do |user_room|%>
+        <li class="user-list">
+          <p><%= user_room.user.name %></p>
+          <%= form_with(url: user_room_path, local: true, method: :delete, class: "search-form") do |f| %>
+            <%= f.hidden_field :delete_user_id, value: user_room.user.id %>
+            <%= f.submit "削除", data: { confirm: "削除しますか？" }%>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+    <div class="form-title">
+      ユーザー検索
+    </div>
+    <div class="form-search">
+      <%= form_with(url: user_room_path, local: true, method: :put, class: "search-form") do |f| %>
+        <%= f.text_field :keyword, placeholder: "ユーザーIDを入力", class: "search-input" %>
+        <%= f.submit "検索", class: "search-btn" %>
+      <% end %>
+    </div>
+    <div class="form-title">
+      検索結果
+    </div>
+    <% if @user == "error" %>
+      <p>IDが間違っているか、存在しません</p>
+    <% elsif @user == "registered" %>
+      <p>すでにグループに入っています</p>
+    <% elsif @user != nil%>
+    <div>
+      <%= form_with(model: @user_room, local: true, method: :post, class: "search-form") do |f| %>
+        <%= @user.name %>
+        <%= f.hidden_field :add_user_id, value: @user.id %>
+        <%= f.submit "追加する"%>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>
