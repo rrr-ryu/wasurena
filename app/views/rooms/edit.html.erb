@@ -4,6 +4,12 @@
     <div class="form-title">
       <h2>グループ編集</h2>
     </div>
+    <div class="group-user">グループ参加ユーザー名</div>
+    <ul class="user-lists">
+      <% @user_rooms.each do |user_room|%>
+        <li class="user-list"><%= user_room.user.name %></li>
+      <% end %>
+    </ul>
     <%= form_with model: @room, local: true do |f| %>
       <div class="form-errors">
       <%= render 'shared/error_messages', model: f.object %>
@@ -19,10 +25,10 @@
 
       <div class="actions">
         <span>
-        <%= f.submit "編集する" %>
+        <%= f.submit "変更" %>
         </span>
         <span class="destroy">
-          <%= link_to "削除する", room_path, method: :DELETE, class: "destroy-button"%>
+          <%= link_to "削除", room_path, method: :DELETE, class: "destroy-button"%>
         </span>
       </div>
     <% end %>

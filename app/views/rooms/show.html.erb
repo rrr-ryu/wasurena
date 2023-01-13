@@ -37,6 +37,9 @@
           <li class="main-list">
             <%= link_to "・送迎種類作成へ",   new_room_pickup_path(room_id: params[:id]) %>
           </li>
+          <li class="main-list">
+            <%= link_to "・グループユーザー編集へ",   user_room_path(id: params[:id]) %>
+          </li>
         </ul>
       </div>
     </div>

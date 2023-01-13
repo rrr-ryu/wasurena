@@ -4,7 +4,7 @@
     <div class="sidebar">
       <div id="sidebar-top">
         <p><%= @room.name %></p>
-        <%= link_to "編集",  edit_room_path, class:"edit"%>
+        <%= link_to "編集",  edit_room_path(id: params[:room_id]), class:"edit"%>
       </div>
       <div class="sidebar-index">
       <%# クラス、送迎一覧表示 %>

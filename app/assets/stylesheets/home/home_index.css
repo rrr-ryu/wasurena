@@ -1,4 +1,12 @@
 .home-index{
   padding: 50px;
   line-height: 30px;
+  overflow: scroll;
+}
+
+/* レスポンシブデザイン タブレット表示*/
+@media (max-width: 1024px) {
+  .home-index {
+    font-size: 14px;
+  }
 }

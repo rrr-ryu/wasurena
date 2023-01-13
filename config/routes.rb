@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'home#index'
-  get 'home/index'
-
+  get 'home/index'  
+  resources :user_rooms, only: [:update, :show, :destroy]
+  post 'user_rooms/:id', to: 'user_rooms#create'
   resources :rooms do
     resources :teams
     resources :pickups
