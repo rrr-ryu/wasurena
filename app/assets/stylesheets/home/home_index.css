@@ -1,6 +1,7 @@
 .home-index{
   padding: 50px;
   line-height: 30px;
+  overflow: scroll;
 }
 
 /* レスポンシブデザイン タブレット表示*/
