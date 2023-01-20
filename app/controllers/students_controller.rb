@@ -24,6 +24,8 @@ class StudentsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @student.comments.includes(:student)
   end
 
   def edit
