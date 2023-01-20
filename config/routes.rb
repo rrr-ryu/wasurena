@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   resources :rooms do
     resources :teams
     resources :pickups
-    resources :students
+    resources :students do
+      resources :comments, only: [:create]
+    end
+
     put 'students/:id/update', to: 'students#update_edit'
     put 'students/ride/reset', to: 'students#reset_ride'
     put 'students/attend/reset', to:'students#reset_attend'

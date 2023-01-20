@@ -7,5 +7,6 @@ class Student < ApplicationRecord
   belongs_to :pickup, optional: true
   belongs_to :ride, optional: true
   belongs_to :attend, optional: true
+  has_many :comments, dependent: :destroy
   has_one_attached :image
 end
