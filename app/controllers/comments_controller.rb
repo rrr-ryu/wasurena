@@ -8,8 +8,8 @@ class CommentsController < ApplicationController
       redirect_to  room_student_path(id: params[:student_id])
     else
       @student = @comment.student
-      @comments = student.comments
-      render room_student_path(id: params[:student_id])
+      @comments = @student.comments
+      redirect_to  room_student_path(id: params[:student_id])
     end
   end
 
