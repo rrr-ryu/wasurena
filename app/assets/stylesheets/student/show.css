@@ -1,5 +1,10 @@
+.student-show-main{
+  display: flex;
+}
+
 .student-show {
   text-align: center;
+  width: 50%;
 }
 .student-name {
   font-size: 20px;
