@@ -1,6 +1,7 @@
 <%= render partial:'shared/third_header' %>
 <div class="main-page">
   <div class="show-page">
+  <%# 画面左 %>
     <div class="student-show-main">
       <div class="student-show">
         <div class="student-name">
@@ -38,7 +39,9 @@
             </span>
           </div>
       </div>
+      <%# 画面右 %>
       <div class="student-comments">
+      <%# コメント投稿フォーム %>
             <%= form_with model: [@room, @student, @comment],local: true do |f|%>
               <div class="field">
                 <div class="form-label">
@@ -54,6 +57,8 @@
                 </span>
               </div>
             <% end %>
+      
+      <%# コメント表示 %>
         <ul class="comments-lists">
           <%# 投稿に紐づくコメントを一覧する処理を記述する %>
           <% @comments.each do |comment|%>
@@ -63,6 +68,7 @@
                   <%= comment.content%>
                 </p>
                 <p class="comment-user">
+                  <%= comment.created_at.to_s(:datetime_jp) %>
                   <%= comment.user.name %>
                 </p>
               </div>
@@ -70,6 +76,7 @@
           <% end %>
           <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
         </ul>
+
       </div>
     </div>
   </div>

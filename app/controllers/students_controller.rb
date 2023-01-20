@@ -25,7 +25,7 @@ class StudentsController < ApplicationController
 
   def show
     @comment = Comment.new
-    @comments = @student.comments.includes(:student)
+    @comments = @student.comments.includes(:student).order(created_at: :desc)
   end
 
   def edit
