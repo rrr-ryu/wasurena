@@ -31,9 +31,9 @@ Wasurena (勿忘）
 
 - Basic認証PASS:rrr9119
 
-- テスト用アカウントID:abc12345
+- テスト用アカウントID:test12345
 
-- テスト用アカウントPASS:abc12345
+- テスト用アカウントPASS:password12345
 
 <br>
 <br>
